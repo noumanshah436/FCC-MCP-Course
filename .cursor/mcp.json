@@ -1,0 +1,18 @@
+{
+    "mcpServers": {
+        "Calculator-STDIO": {
+            "command": "venv/Scripts/python.exe",
+            "args": [
+                "MainCode/Scenario1/fastmcp_calculator.py"
+            ]
+        },
+        "Calculator-HTTP": {
+            "command": "npx",
+            "args": [
+                "-y",
+                "mcp-remote",
+                "http://localhost:8002/mcp"
+            ]
+        }
+    }
+}

@@ -1,7 +1,8 @@
-#libraries
+# libraries
 from fastmcp import FastMCP
 
-mcp = FastMCP(name = "Calculator")
+mcp = FastMCP(name="Calculator")
+
 
 @mcp.tool()
 def multiply(a: float, b: float) -> float:
@@ -14,11 +15,8 @@ def multiply(a: float, b: float) -> float:
     """
     return a * b
 
-@mcp.tool(
-    name ="add",
-    description = "Add two numbers.",
-    tags = {"math", "arithmetic"}
-)
+
+@mcp.tool(name="add", description="Add two numbers.", tags={"math", "arithmetic"})
 def add_numbers(x: float, y: float) -> float:
     """Add two numbers.
 
@@ -28,6 +26,7 @@ def add_numbers(x: float, y: float) -> float:
     returns: float: The sum of the two numbers.
     """
     return x + y
+
 
 @mcp.tool()
 def subtract(a: float, b: float) -> float:
@@ -39,6 +38,7 @@ def subtract(a: float, b: float) -> float:
     returns: float: The difference of the two numbers.
     """
     return a - b
+
 
 @mcp.tool()
 def divide(a: float, b: float) -> float:
@@ -53,5 +53,13 @@ def divide(a: float, b: float) -> float:
         raise ValueError("Cannot divide by zero.")
     return a / b
 
+
 if __name__ == "__main__":
-    mcp.run(transport="http",host="localhost",port=8003) #http
+    mcp.run(transport="http", host="localhost", port=8003)  # http
+
+
+# In terminal 1:
+# python fastmcp_calculatorV2.py
+
+# In terminal 2:
+# npx @modelcontextprotocol/inspector http://127.0.0.1:8003/mcp
